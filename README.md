@@ -17,8 +17,7 @@ void main() {
 }
 
 Map<String, dynamic> shuffleAndDealCards(List<dynamic> deck) {
-  Map<String, dynamic> dealt = {'player1': [], 'player2': [], 'player3': [], 'player4': []};
-
+  //shulle deck
   for (int i = 0; i < deck.length; i++) {
     int swapIndex = math.Random().nextInt(deck.length - i);
     var temp = deck[swapIndex];
@@ -26,6 +25,8 @@ Map<String, dynamic> shuffleAndDealCards(List<dynamic> deck) {
     deck[i] = temp;
   }
 
+  //deal cards
+  Map<String, dynamic> dealt = {'player1': [], 'player2': [], 'player3': [], 'player4': []};
   int index = 0;
   for (var card in deck) {
     if (index % 4 == 0) dealt.update('player1', (hand) => hand + [card]);
@@ -34,7 +35,6 @@ Map<String, dynamic> shuffleAndDealCards(List<dynamic> deck) {
     if (index % 4 == 3) dealt.update('player4', (hand) => hand + [card]);
     index++;
   }
-
   return dealt;
 }
 ```
