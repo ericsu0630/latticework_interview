@@ -1,5 +1,5 @@
 ### Q1
-#### The code below can be copy pasted directly to [dartpad.dev](https://dartpad.dev)
+The code below can be copy pasted directly to [dartpad.dev](https://dartpad.dev)
 ```dart
 import 'dart:math' as math;
 
