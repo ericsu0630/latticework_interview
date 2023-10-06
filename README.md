@@ -17,23 +17,18 @@ void main() {
 }
 
 Map<String, dynamic> shuffleAndDealCards(List<dynamic> deck) {
-  //shulle deck
+  Map<String, dynamic> dealt = {'player1': [], 'player2': [], 'player3': [], 'player4': []};
   for (int i = 0; i < deck.length; i++) {
-    int swapIndex = math.Random().nextInt(deck.length - i);
+    //shulle card
+    int swapIndex = i + math.Random().nextInt(deck.length - i);
     var temp = deck[swapIndex];
     deck[swapIndex] = deck[i];
     deck[i] = temp;
-  }
-
-  //deal cards
-  Map<String, dynamic> dealt = {'player1': [], 'player2': [], 'player3': [], 'player4': []};
-  int index = 0;
-  for (var card in deck) {
-    if (index % 4 == 0) dealt.update('player1', (hand) => hand + [card]);
-    if (index % 4 == 1) dealt.update('player2', (hand) => hand + [card]);
-    if (index % 4 == 2) dealt.update('player3', (hand) => hand + [card]);
-    if (index % 4 == 3) dealt.update('player4', (hand) => hand + [card]);
-    index++;
+    //deal card
+    if (i % 4 == 0) dealt.update('player1', (hand) => hand + [deck[i]]);
+    if (i % 4 == 1) dealt.update('player2', (hand) => hand + [deck[i]]);
+    if (i % 4 == 2) dealt.update('player3', (hand) => hand + [deck[i]]);
+    if (i % 4 == 3) dealt.update('player4', (hand) => hand + [deck[i]]);
   }
   return dealt;
 }
